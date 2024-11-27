@@ -2,7 +2,6 @@ package Pedidos;
 
 import java.util.List;
 import Produtos.Produto;
-import Usuarios.Aluno;
 import Usuarios.Usuario;
 
 public class Pedido {
@@ -44,13 +43,4 @@ public class Pedido {
         return usuario;
     }
 
-    @Override
-    public String toString() {
-        return "Pedido #" + numeroPedido +
-               "\nUsuário: " + usuario.getMatricula() +
-               (usuario instanceof Aluno ? ", Nome: " + ((Aluno) usuario).getNome() : "") +
-               "\nProdutos: " + produtos +
-               "\nValor Total: R$ " + String.format("%.2f", valorTotal) +
-               "\nMeio de Pagamento: " + meioPagamento;
-    }
 }

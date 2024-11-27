@@ -10,4 +10,9 @@ public class Lanches extends Produto {
     public double getPeso() {
         return peso;
     }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
 }

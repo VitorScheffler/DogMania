@@ -10,4 +10,9 @@ public class Sucos extends Bebidas {
     public String getSabor() {
         return sabor;
     }
+
+    public void getSabor(String sabor) {
+        this.sabor = sabor;
+    }
+
 }

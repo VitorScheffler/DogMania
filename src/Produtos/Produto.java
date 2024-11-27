@@ -1,4 +1,5 @@
 package Produtos;
+
 public abstract class Produto {
     protected double valor;
 
@@ -9,8 +10,9 @@ public abstract class Produto {
     public double getValor() {
         return valor;
     }
-    @Override
-    public String toString() {
-        return "Produto: R$" + String.format("%.2f", valor);
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
+
 }

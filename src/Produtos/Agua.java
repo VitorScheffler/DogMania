@@ -10,8 +10,9 @@ public class Agua extends Bebidas {
     public String getMarca() {
         return marca;
     }
-    @Override
-    public String toString() {
-        return super.toString() + ", Marca: " + marca;
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
+
 }

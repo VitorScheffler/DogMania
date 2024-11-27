@@ -10,9 +10,9 @@ public class Bebidas extends Produto {
     public double getTamanho() {
         return tamanho;
     }
-    
-    @Override
-    public String toString() {
-        return super.toString() + ", Tamanho: " + tamanho + " ml";
+
+    public void setTamanho(double tamanho) {
+        this.tamanho = tamanho;
     }
+
 }
