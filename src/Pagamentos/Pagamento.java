@@ -1,15 +1,19 @@
 package Pagamentos;
 
 import java.util.List;
-
-import Pedidos.ValorTotalPedido;
 import Produtos.Produto;
 
-public abstract class Pagamento extends ValorTotalPedido {
-    
+public abstract class Pagamento {
+    private double valorTotal;
+
     public Pagamento(List<Produto> produtos) {
-        super(produtos);
+        this.valorTotal = produtos.stream().mapToDouble(Produto::getValor).sum();
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
     }
 
     public abstract boolean processarPagamento(double valorPago);
 }
+
