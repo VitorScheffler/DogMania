@@ -1,3 +1,5 @@
+// Se o pagamento for no cartão, receber o valor total do pedido, receber se vai ser no credito ou no debito e receber a bandeira do cartão
+
 package Pagamentos;
 
 import java.util.List;
@@ -19,16 +21,6 @@ public class Cartao extends Pagamento {
         this.tipoCartao = tipoCartao;
     }
 
-    @Override
-    public boolean processarPagamento(double valorPago) {
-        if (valorPago >= getValorTotal()) {
-            System.out.println("Pagamento com cartão " + tipoCartao + " processado com sucesso!");
-            return true;
-        }
-        System.out.println("Pagamento com cartão " + tipoCartao + " falhou: valor insuficiente.");
-        return false;
-    }
-
     public String getNumeroCartao() {
         return numeroCartao;
     }
@@ -43,6 +35,16 @@ public class Cartao extends Pagamento {
 
     public void setTipoCartao(TipoCartao tipoCartao) {
         this.tipoCartao = tipoCartao;
+    }
+
+    @Override
+    public boolean processarPagamento(double valorPago) {
+        if (valorPago >= getValorTotal()) {
+            System.out.println("Pagamento com cartão " + tipoCartao + " processado com sucesso!");
+            return true;
+        }
+        System.out.println("Pagamento com cartão " + tipoCartao + " falhou: valor insuficiente.");
+        return false;
     }
 
 }
