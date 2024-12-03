@@ -1,5 +1,3 @@
-// Se o pagamento for no cartão, receber o valor total do pedido, receber se vai ser no credito ou no debito e receber a bandeira do cartão
-
 package Pagamentos;
 
 import java.util.List;
@@ -8,25 +6,20 @@ import Produtos.Produto;
 public class Cartao extends Pagamento {
 
     public enum TipoCartao {
-        CREDITO,
-        DEBITO;
+        CREDITO, DEBITO;
     }
 
-    private String numeroCartao;
+    public enum BandeiraCartao {
+        VISA, MASTERCARD, ELO;
+    }
+
     private TipoCartao tipoCartao;
+    private BandeiraCartao bandeiraCartao;
 
-    public Cartao(List<Produto> produtos, String numeroCartao, TipoCartao tipoCartao) {
+    public Cartao(List<Produto> produtos, TipoCartao tipoCartao, BandeiraCartao bandeiraCartao) {
         super(produtos);
-        this.numeroCartao = numeroCartao;
         this.tipoCartao = tipoCartao;
-    }
-
-    public String getNumeroCartao() {
-        return numeroCartao;
-    }
-
-    public void setNumeroCartao(String numeroCartao) {
-        this.numeroCartao = numeroCartao;
+        this.bandeiraCartao = bandeiraCartao;
     }
 
     public TipoCartao getTipoCartao() {
@@ -37,13 +30,21 @@ public class Cartao extends Pagamento {
         this.tipoCartao = tipoCartao;
     }
 
+    public BandeiraCartao getBandeiraCartao() {
+        return bandeiraCartao;
+    }
+
+    public void serBandeiraCartao(BandeiraCartao bandeiraCartao) {
+        this.bandeiraCartao = bandeiraCartao;
+    }
+
     @Override
     public boolean processarPagamento(double valorPago) {
         if (valorPago >= getValorTotal()) {
-            System.out.println("Pagamento com cartão " + tipoCartao + " processado com sucesso!");
+            System.out.println("Pagamento com cartão " + bandeiraCartao + " processado com sucesso!");
             return true;
         }
-        System.out.println("Pagamento com cartão " + tipoCartao + " falhou: valor insuficiente.");
+        System.out.println("Pagamento com cartão " + bandeiraCartao + " falhou!");
         return false;
     }
 

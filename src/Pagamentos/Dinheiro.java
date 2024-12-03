@@ -1,5 +1,3 @@
-// Se o pagamento for em dinheiro, receber o valor total, receber o valor em dinheiro e calcular o troco
-
 package Pagamentos;
 
 import java.util.List;
@@ -21,14 +19,14 @@ public class Dinheiro extends Pagamento {
         this.valorRecebido = valorRecebido;
     }
 
-    public double calcularTroco() {
+    public double troco() {
         return valorRecebido - getValorTotal();
     }
 
     @Override
     public boolean processarPagamento(double valorPago) {
         if (valorPago >= getValorTotal()) {
-            System.out.println("Troco: " + calcularTroco());
+            System.out.println("Troco: " + troco());
             return true;
         } else {
             System.out.println("Erro: valor insuficiente!");
